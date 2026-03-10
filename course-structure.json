@@ -1,6 +1,6 @@
 {
-  "version": "1.0.0",
-  "lastUpdated": "2025-01-07",
+  "version": "2.0.0",
+  "lastUpdated": "2026-03-10",
   "levels": [
     {
       "id": "0",
@@ -163,6 +163,51 @@
           "estimatedMinutes": 15
         }
       ]
+    },
+    {
+      "id": "3",
+      "name": "Power User Track",
+      "description": "Master advanced Claude Code features: hooks, MCP, and multi-agent workflows",
+      "modules": [
+        {
+          "id": "3.1",
+          "title": "Hooks & Automation",
+          "slug": "hooks",
+          "path": "lesson-modules/3.1-hooks/CLAUDE.md",
+          "command": "start-3-1",
+          "description": "Pre/post-tool hooks, auto-formatting, custom triggers",
+          "estimatedMinutes": 25
+        },
+        {
+          "id": "3.2",
+          "title": "MCP Deep Dive",
+          "slug": "mcp",
+          "path": "lesson-modules/3.2-mcp/CLAUDE.md",
+          "command": "start-3-2",
+          "description": "Connect Claude to GitHub, Notion, Google Calendar, and more",
+          "estimatedMinutes": 30
+        },
+        {
+          "id": "3.3",
+          "title": "Multi-Agent Workflows",
+          "slug": "multi-agent",
+          "path": "lesson-modules/3.3-multi-agent/CLAUDE.md",
+          "command": "start-3-3",
+          "description": "Orchestrate parallel agent pipelines for complex tasks",
+          "estimatedMinutes": 30
+        }
+      ]
+    }
+  ],
+  "bonus": [
+    {
+      "id": "gauntlet",
+      "title": "The Gauntlet",
+      "slug": "bonus",
+      "path": "lesson-modules/bonus-gauntlet/CLAUDE.md",
+      "command": "start-bonus",
+      "description": "One prompt. Three agents. Full verdict on your quiz.",
+      "prerequisites": ["1.6", "2.3"]
     }
   ]
 }

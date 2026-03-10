@@ -1,0 +1,124 @@
+---
+title: '3.3: Multi-Agent Workflows | Claude Code Orchestration'
+description: 'Design and run multi-agent pipelines in Claude Code. One orchestrator, multiple specialists, parallel execution, synthesized results.'
+keywords: 'claude code multi-agent, claude code agent orchestration, claude code pipeline, claude code parallel agents, claude code workflow automation'
+---
+
+## 3.3: Multi-Agent Workflows
+
+- **Time to Complete:** 30 minutes
+
+> **Interactive lesson:** Run `/start-3-3` in Claude Code
+
+**In this lesson:** Design pipelines where one Claude orchestrates multiple specialist agents running in parallel.
+
+## Three Levels of Claude Code
+
+| Level | What it looks like | You learned it in |
+|-------|-------------------|-------------------|
+| **Single agent** | One Claude, one task, sequential | Module 1 basics |
+| **Parallel agents** | Multiple Claudes, same task type, all at once | Lesson 1.5 |
+| **Orchestrated pipeline** | One Claude breaks a job into subtasks, delegates to specialists, synthesizes results | This lesson |
+
+## The Orchestration Model
+
+```
+Your prompt
+    ↓
+Orchestrator (Claude)
+    ↓ breaks into subtasks
+    ├── Agent A: Research
+    ├── Agent B: Write
+    └── Agent C: Review
+    ↓ waits for all results
+Synthesized output
+```
+
+The orchestrator manages the whole flow. You just write the prompt.
+
+## A Simple Pipeline
+
+**Research → Write → Review:**
+
+```
+Step 1: Use the Agent tool to spawn a research agent.
+        Task: Find the top 5 facts about [TOPIC]. Return structured findings.
+
+Step 2: Use the Agent tool to spawn a writer agent.
+        Task: Using these findings, write a 300-word briefing. Save to analysis/briefing.md
+
+Step 3: Use the Agent tool to spawn a reviewer agent.
+        Task: Read analysis/briefing.md. Return a quality score (1-10) with suggestions.
+
+Step 4: Incorporate the top suggestion. Save final version to analysis/final.md
+```
+
+## Parallel vs Sequential Agents
+
+Agents launched in the **same response** run in parallel.
+Agents launched in **separate responses** run sequentially.
+
+For truly parallel execution, the orchestrator must spawn all independent agents at once before waiting for results.
+
+## Combining With Hooks and MCP
+
+The real power comes from combining all three:
+
+```
+Hook triggers at session start
+    ↓
+Orchestrator spawns 3 agents in parallel:
+    ├── Agent A: Fetches today's calendar via MCP (Google Calendar)
+    ├── Agent B: Fetches open GitHub PRs via MCP (GitHub)
+    └── Agent C: Reads Notion task list via MCP (Notion)
+    ↓
+Synthesizes into analysis/daily-briefing.md
+```
+
+You open your computer. The briefing is already there.
+
+## Designing Your Own Pipeline
+
+Ask these questions:
+
+1. **What's the final output?** Work backwards from here.
+2. **What distinct steps does it take?** Each step → one agent.
+3. **Which steps depend on each other?** Dependencies must be sequential. Independent steps can be parallel.
+4. **What does each agent need to know?** Keep each agent's task narrow and clear.
+
+## Agent Task Checklist
+
+Good agent tasks have:
+- [ ] Clear input (what to read/use)
+- [ ] Clear output (what to produce, where to save it)
+- [ ] Narrow scope (one job, not three)
+- [ ] Output format specified (so synthesis is easy)
+
+## Real-World Pipelines
+
+| Use Case | Agents |
+|----------|--------|
+| Weekly report | Fetch data + Write summary + Format for stakeholders |
+| Code review | Check style + Check logic + Check security |
+| Content creation | Research + Draft + SEO review |
+| Competitive analysis | Research each competitor in parallel + Compare + Recommend |
+| Job application | Tailor resume + Write cover letter + Research company |
+
+## Troubleshooting
+
+| Problem | Fix |
+|---------|-----|
+| Agents running sequentially not in parallel | Spawn all agents in a single response |
+| Output formats inconsistent | Give each agent an explicit output template |
+| Synthesis step confused by agent outputs | Have each agent save to a named file, then synthesize from files |
+| Pipeline too complex | Break it into two separate orchestrations |
+
+---
+
+## Module 3 Complete!
+
+You now know hooks, MCP, and multi-agent orchestration.
+
+**Ready for the ultimate test?**
+
+**[The Gauntlet →](/bonus)** — One prompt. Three agents. Full verdict on your quiz.

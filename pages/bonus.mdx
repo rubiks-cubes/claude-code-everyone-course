@@ -1,0 +1,111 @@
+---
+title: 'The Gauntlet 🏆 | Claude Code Bonus Project'
+description: 'One prompt. Three agents. Full multi-agent review of your Coffee Personality Quiz. The Gauntlet is the ultimate test of everything you learned.'
+keywords: 'claude code gauntlet, claude code multi-agent review, claude code bonus project, claude code agents, vibe coding project review'
+---
+
+## The Gauntlet 🏆
+
+> **Run it:** Type `/start-bonus` in Claude Code
+
+**Prerequisites:** Module 1 (agents from lesson 1.6) + Module 2 (the quiz). Module 3 is optional.
+
+---
+
+## What Is This?
+
+One prompt. Three agents. Full verdict on your quiz.
+
+You type a single prompt. Three agents you built in lesson 1.6 launch simultaneously — each reviewing your Coffee Personality Quiz from a completely different angle. Claude synthesizes their feedback into a final verdict. You pick one thing to fix and ship it.
+
+No setup. No new tools. Pure multi-agent orchestration from a single command.
+
+## The Three Agents
+
+| Agent | Persona | Their angle |
+|-------|---------|-------------|
+| **(•‿•) Barista Lead** | Hears customers talk about coffee every day | "Does this feel like a real coffee shop? Would our regulars take this?" |
+| **(ಠ_ಠ) Exec** | Needs numbers and business outcomes | "What's the projected lift in loyalty sign-ups? What would I track?" |
+| **(◠‿◠) Product Designer** | Focused on emotion and delight | "Where's the moment of magic? Would someone share their result?" |
+
+## The Prompt
+
+Copy this verbatim into Claude Code:
+
+```
+Use the Barista Lead, Exec, and Product Designer agents simultaneously to review
+the Coffee Personality Quiz at @quiz-project. I want each agent to give their
+honest assessment — what works, what doesn't, and one thing they'd change.
+Then synthesize all three reviews into a final verdict and save it to
+analysis/gauntlet-report.md
+```
+
+## What Happens
+
+1. All three agents launch **in parallel** — watch them all go at once
+2. Each returns an in-character assessment
+3. Claude synthesizes all three into a structured final verdict
+4. The report is saved to `analysis/gauntlet-report.md`
+
+## The Report Structure
+
+```markdown
+# Gauntlet Report — Coffee Personality Quiz
+
+## The Panel
+- Barista Lead: [their take in 1-2 sentences]
+- Exec: [their take in 1-2 sentences]
+- Product Designer: [their take in 1-2 sentences]
+
+## What's Working
+## What Needs Work
+## The One Fix That Matters Most
+## Final Verdict
+```
+
+## After the Report
+
+Read it. All of it.
+
+Then pick **one thing** — the highest-impact change from the verdict — and fix it. Push to GitHub. Done.
+
+That's the whole lesson. One fix, shipped.
+
+## Why One Fix?
+
+Overwhelm is the enemy of shipping. Real product development isn't about fixing everything at once — it's about picking the most important thing and doing it.
+
+The Gauntlet ends when you've shipped the fix. Not when you've read the report.
+
+## The Bigger Point
+
+You just ran a multi-agent review process:
+- Three independent perspectives
+- One synthesized output
+- One concrete action
+- No meeting, no email thread, no waiting for feedback
+
+This scales to anything:
+- A landing page before you launch it
+- A business proposal before you send it
+- A job description before you post it
+- A process doc nobody reads
+
+Same pattern. Different agents. Different context.
+
+---
+
+## Course Complete 🎉
+
+If you've made it here, you've gone from zero to:
+
+- Exploring and synthesizing files with AI
+- Building and deploying a real web app
+- Setting up automated hooks
+- Connecting Claude to external services
+- Orchestrating multi-agent pipelines
+- Shipping based on AI feedback
+
+That's not a beginner skill set.
+
+More modules, guides, and community at **[ccforeveryone.com](https://ccforeveryone.com)**.

@@ -1,0 +1,104 @@
+---
+title: '3.2: MCP Deep Dive | Connect Claude to Everything'
+description: 'Connect Claude Code to GitHub, Notion, Google Calendar, Slack, and more using MCP servers. Live data without copy-pasting.'
+keywords: 'claude code mcp, model context protocol, claude code github integration, claude code notion, claude code google calendar, claude mcp server'
+---
+
+## 3.2: MCP Deep Dive
+
+- **Time to Complete:** 30 minutes
+
+> **Interactive lesson:** Run `/start-3-2` in Claude Code
+
+**In this lesson:** Connect Claude to your real tools so it can pull live data without you switching tabs.
+
+## What Is MCP?
+
+**Model Context Protocol** — the standard that lets Claude connect to external services.
+
+Without MCP, Claude only knows what you paste into the conversation.
+
+With MCP, Claude can reach into GitHub, read a Notion doc, check your calendar, or query a database — directly, in real time.
+
+## How It Works
+
+MCP servers are small adapters that translate between Claude and an external service. You install them once. After that, Claude uses them silently.
+
+```
+Claude Code ←→ MCP Server ←→ GitHub / Notion / Calendar / etc.
+```
+
+## Setup Command
+
+```bash
+claude mcp add [name] -- [server command]
+```
+
+List what's connected:
+```bash
+claude mcp list
+```
+
+## Popular MCP Servers
+
+| Service | Setup Command |
+|---------|---------------|
+| **GitHub** | `claude mcp add github -- npx -y @modelcontextprotocol/server-github` |
+| **Notion** | `claude mcp add notion -- npx -y @modelcontextprotocol/server-notion` |
+| **Google Calendar** | `claude mcp add gcal -- npx -y @modelcontextprotocol/server-google-calendar` |
+| **Slack** | `claude mcp add slack -- npx -y @modelcontextprotocol/server-slack` |
+| **Linear** | `claude mcp add linear -- npx -y @modelcontextprotocol/server-linear` |
+| **Jira** | `claude mcp add jira -- npx -y @modelcontextprotocol/server-jira` |
+| **Postgres** | `claude mcp add postgres -- npx -y @modelcontextprotocol/server-postgres` |
+| **Filesystem** | `claude mcp add filesystem -- npx -y @modelcontextprotocol/server-filesystem /path` |
+
+Search for more: [npmjs.com/search?q=@modelcontextprotocol](https://www.npmjs.com/search?q=%40modelcontextprotocol)
+
+## What You Can Do Once Connected
+
+**GitHub connected:**
+> "What are the open issues on my quiz-project repo?"
+> "Summarize the last 5 commits."
+> "Create an issue: 'Add progress bar to quiz'"
+
+**Notion connected:**
+> "Find my product roadmap doc and summarize the Q2 priorities."
+> "Add a new task to my inbox database."
+
+**Google Calendar connected:**
+> "What's on my calendar tomorrow morning?"
+> "Am I free Thursday at 2pm?"
+
+**All three connected:**
+> "What's on my plate today? Check my calendar, open GitHub PRs, and Notion task list."
+
+That last one is the morning briefing — one question, all your tools, no switching.
+
+## API Keys
+
+Most MCP servers need an API key from the service. The pattern is always:
+
+1. Generate a key in the service's settings (look for "API", "Integrations", or "Developer")
+2. Set it as an environment variable before running Claude:
+   ```bash
+   export NOTION_API_KEY="your-key-here"
+   export GITHUB_TOKEN="your-token-here"
+   ```
+3. Or add it to your shell profile (`.zshrc`, `.bashrc`) so it's always set
+
+Never paste API keys directly into Claude conversations.
+
+## Troubleshooting
+
+| Problem | Fix |
+|---------|-----|
+| Server not showing in `mcp list` | Re-run the `claude mcp add` command |
+| "Unauthorized" errors | Check your API key is set and correct |
+| Server connects but returns nothing | Check the service permissions (Notion needs pages shared with integration) |
+| Google Calendar auth loop | OAuth requires a browser flow — follow all prompts carefully |
+
+---
+
+## What's Next
+
+**[3.3: Multi-Agent Workflows →](/power-user/multi-agent)** — Orchestrate parallel agents for complex tasks

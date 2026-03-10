@@ -1,0 +1,107 @@
+---
+title: '3.1: Hooks & Automation | Claude Code'
+description: 'Set up Claude Code hooks that run automatically before and after every action. Auto-format, log, notify — without asking.'
+keywords: 'claude code hooks, claude code automation, claude code pre-tool hook, claude code post-tool hook, claude code settings.json'
+---
+
+## 3.1: Hooks & Automation
+
+- **Time to Complete:** 25 minutes
+
+> **Interactive lesson:** Run `/start-3-1` in Claude Code
+
+**In this lesson:** Set up rules that Claude follows automatically on every action — no prompting required.
+
+## What Are Hooks?
+
+Hooks are standing orders baked into your project config.
+
+Instead of saying "please format this file" every time you make a change — you write a hook once that says "after every file edit, always run the formatter." Done. It runs silently forever.
+
+| Type | When it runs | Good for |
+|------|-------------|----------|
+| **PreToolUse** | Before Claude takes an action | Checks, logging, confirmations |
+| **PostToolUse** | After Claude takes an action | Formatting, backups, notifications |
+
+## Where Hooks Live
+
+Hooks are configured in `.claude/settings.json` in your project folder.
+
+```json
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "your-command-here"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+- `matcher` — which tool(s) trigger this hook (`Write`, `Edit`, `Bash`, etc.)
+- `command` — any shell command to run
+
+## The Most Useful Hook: Auto-Format
+
+Keeps code clean without thinking about it.
+
+```json
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npx prettier --write \"$CLAUDE_TOOL_RESULT_FILE_PATH\" 2>/dev/null || true"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+- `$CLAUDE_TOOL_RESULT_FILE_PATH` — Claude injects the path of the file just written/edited
+- `|| true` — if Prettier isn't installed, the hook silently does nothing (no crash)
+
+## Hook Variables
+
+Claude Code injects these automatically:
+
+| Variable | Available in | What it contains |
+|----------|-------------|-----------------|
+| `$CLAUDE_TOOL_RESULT_FILE_PATH` | PostToolUse (Write/Edit) | Path of file just modified |
+| `$CLAUDE_TOOL_INPUT_COMMAND` | PreToolUse (Bash) | The bash command about to run |
+
+## Real-World Hook Ideas
+
+| Hook | Trigger | Command |
+|------|---------|---------|
+| Auto-format | After any file edit | `npx prettier --write "$CLAUDE_TOOL_RESULT_FILE_PATH"` |
+| Desktop notification (Mac) | After any Bash command | `osascript -e 'display notification "Done!" with title "Claude"'` |
+| Activity log | After any file edit | `echo "$(date): edited $CLAUDE_TOOL_RESULT_FILE_PATH" >> claude-log.txt` |
+| Audit trail | Before any Bash | `echo "$(date): $CLAUDE_TOOL_INPUT_COMMAND" >> audit.log` |
+
+## Troubleshooting
+
+| Problem | Fix |
+|---------|-----|
+| Hook not triggering | Check `settings.json` is valid JSON (no trailing commas) |
+| Hook crashing Claude | Add `|| true` at the end of the command |
+| Wrong files being formatted | Check the `matcher` value matches the tool name exactly |
+| Hook runs but does nothing | Test the command directly in your terminal first |
+
+---
+
+## What's Next
+
+**[3.2: MCP Deep Dive →](/power-user/mcp)** — Connect Claude to GitHub, Notion, Calendar, and more

@@ -5,12 +5,12 @@ import { useRouter } from 'next/router'
 export default {
   logo: <span style={{ fontWeight: 600 }}>Claude Code for Everyone</span>,
   project: {
-    link: 'https://github.com/carlvellotti/claude-code-everyone-course'
+    link: 'https://github.com/rubiks-cubes/claude-code-everyone-course'
   },
-  docsRepositoryBase: 'https://github.com/carlvellotti/claude-code-everyone-course/blob/main/website',
+  docsRepositoryBase: 'https://github.com/rubiks-cubes/claude-code-everyone-course/blob/main',
   feedback: {
-    content: 'Give Carl feedback →',
-    useLink: () => 'mailto:carl@fullstackpm.com?subject=CC4E%20Feedback'
+    content: 'Open an issue →',
+    useLink: () => 'https://github.com/rubiks-cubes/claude-code-everyone-course/issues/new'
   },
   editLink: {
     component: null
