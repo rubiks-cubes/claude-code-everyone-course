@@ -1,6 +1,8 @@
-# Claude Code for Product Managers - Documentation Website
+# Claude Code for Everyone - Documentation Website
 
-This is the Nextra-based documentation website for the Claude Code for Product Managers Course.
+This is the Nextra-based documentation website for the **Claude Code for Everyone** (CC4E) course.
+
+The actual course materials (lesson scripts, commands, scenario files) live in `course-materials/`.
 
 ## Development
 
@@ -30,12 +32,11 @@ npm run build
 
 1. Go to [vercel.com](https://vercel.com) and sign in
 2. Click "Add New Project"
-3. Import the GitHub repository: `carlvellotti/claude-code-pm-course`
-4. Set the Root Directory to `website`
-5. Framework Preset: Next.js
-6. Build Command: `npm run build`
-7. Output Directory: `out`
-8. Deploy!
+3. Import this GitHub repository
+4. Framework Preset: Next.js
+5. Build Command: `npm run build`
+6. Output Directory: `out`
+7. Deploy!
 
 ### Option 2: Deploy via Vercel CLI
 
@@ -43,8 +44,7 @@ npm run build
 # Install Vercel CLI
 npm i -g vercel
 
-# Deploy from the website directory
-cd website
+# Deploy from the root directory
 vercel
 
 # For production
@@ -54,42 +54,46 @@ vercel --prod
 ## Project Structure
 
 ```
-website/
-├── pages/               # All content pages (MDX)
-│   ├── company-context/ # TaskFlow company info
-│   ├── getting-started/ # Modules 0.0-0.2
-│   ├── fundamentals/    # Modules 1.1-1.7
-│   ├── advanced/        # Modules 2.1-2.3
-│   ├── _app.jsx         # Next.js app wrapper
-│   ├── _meta.ts         # Navigation config
-│   ├── index.mdx        # Homepage
-│   └── search.mdx       # Search page with Pagefind
-├── public/
-│   └── images/          # Course images
-├── next.config.mjs      # Next.js configuration
-├── theme.config.tsx     # Nextra theme configuration
-└── package.json         # Dependencies
+course-materials/        # Course lesson scripts and scenario files
+├── lesson-modules/      # CLAUDE.md lesson files (1.1–3.3 + bonus)
+├── .claude/
+│   ├── commands/        # Slash commands (/start-1-1, /help, /stuck, etc.)
+│   └── EXTERNAL-LINKS.md
+├── company-context/     # Basecamp Coffee scenario background
+├── inherited-chaos/     # Messy files students analyze in Module 1
+└── course-structure.json
+
+pages/                   # Nextra documentation pages (MDX)
+public/                  # Images and static assets
 ```
 
 ## Content Updates
 
-Content is automatically converted from the main course `lesson-modules/` directory. To update:
+Course content lives in `course-materials/lesson-modules/`. To update the website:
 
-1. Edit the REFERENCE_GUIDE.md files in `/lesson-modules/`
+1. Edit the relevant `CLAUDE.md` files in `course-materials/lesson-modules/`
 2. Run the conversion script: `./convert-content.sh`
 3. Build and deploy
 
 ## Tech Stack
 
-- **Next.js 14** - Static site generation
-- **Nextra 3** - Documentation theme
+- **Next.js** - Static site generation
+- **Nextra** - Documentation theme
 - **Pagefind** - Client-side search
 - **MDX** - Markdown with JSX components
 
+## Course Overview
+
+| Module | Title | Lessons |
+|--------|-------|---------|
+| 1 | Claude Code Fundamentals | 1.1 – 1.8 |
+| 2 | Vibe Coding | 2.1 – 2.5 |
+| 3 | Power User Track | 3.1 – 3.3 |
+| Bonus | The Gauntlet | `/start-bonus` |
+
 ## Links
 
-- **Live Site:** TBD (will be deployed to Vercel)
-- **Course Repository:** https://github.com/carlvellotti/claude-code-pm-course
+- **Original Course:** https://github.com/carlvellotti/claude-code-everyone-course
+- **Course Site:** https://ccforeveryone.com
 - **Nextra Docs:** https://nextra.site
 - **Pagefind Docs:** https://pagefind.app
-
