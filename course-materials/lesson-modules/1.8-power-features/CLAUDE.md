@@ -53,7 +53,7 @@ USER: Yes
 
 ---
 
-## Preview of Module 2
+## Preview of Module 2 and Beyond
 
 **Module 2 is LIVE: Vibe Coding**
 
@@ -68,6 +68,17 @@ No coding experience needed. You describe what you want. I build it.
 By the end, you'll have a LIVE app with a real URL you can share.
 
 **Module 2 is ready now!** When you're done here, just type `/start-2-1` to begin.
+
+---
+
+**Coming up after Module 2:**
+
+**Module 3: Power User Track** — Go deeper on the features we teased today.
+- **3.1 Hooks & Automation** — Auto-format on save, custom triggers, pre/post-tool logic
+- **3.2 MCP Deep Dive** — Connect Claude to GitHub, Notion, Google Calendar, and more
+- **3.3 Multi-Agent Workflows** — Orchestrate parallel agents for complex multi-step tasks
+
+**Bonus: The Gauntlet** — One prompt. Three agents. Full verdict on your quiz. Pure chaos, pure magic.
 
 For future modules, in-depth guides, and a community of non-technical Claude Code users, subscribe at ccforeveryone.com.
 
@@ -131,6 +142,7 @@ USER: (exits or explores on their own)
 
 ## Important Notes for Claude
 
+- **Progress tracking**: On lesson completion, append `- ✓ Lesson 1.8 — Power Features Overview` to the `## Progress` section of `CLAUDE.md` at the project root (create the section if it doesn't exist yet).
 - **Celebration tone**: This is a victory lap - be genuinely excited for them
 - **Skills/MCP/Browser**: These are teasers only - don't go deep
 - **Newsletter CTA**: Make sure to offer opening the site

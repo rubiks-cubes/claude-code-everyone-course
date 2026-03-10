@@ -2,7 +2,8 @@
   "course": {
     "name": "Claude Code for Everyone",
     "code": "cc4e",
-    "version": "1.0.0",
+    "version": "2.0.0",
+    "lastUpdated": "2026-03-10",
     "author": "Carl Vellotti",
     "website": "https://ccforeveryone.com"
   },
@@ -58,7 +59,7 @@
           "id": "1.8",
           "name": "Power Features Overview",
           "path": "lesson-modules/1.8-power-features/CLAUDE.md",
-          "description": "Celebration, recap, and preview of Module 2"
+          "description": "Celebration, recap, and preview of Modules 2 & 3"
         }
       ]
     },
@@ -83,7 +84,7 @@
           "id": "2.3",
           "name": "Build & Iterate",
           "path": "lesson-modules/2.3-build-iterate/CLAUDE.md",
-          "description": "Scaffold, build, and refine with screenshots"
+          "description": "Scaffold (Next.js 15), build, and refine with screenshots"
         },
         {
           "id": "2.4",
@@ -98,6 +99,40 @@
           "description": "Deploy to Vercel with a real URL"
         }
       ]
+    },
+    {
+      "id": "3",
+      "name": "Power User Track",
+      "description": "Master advanced Claude Code features: hooks, MCP, and multi-agent workflows",
+      "lessons": [
+        {
+          "id": "3.1",
+          "name": "Hooks & Automation",
+          "path": "lesson-modules/3.1-hooks/CLAUDE.md",
+          "description": "Pre/post-tool hooks, auto-formatting, custom triggers"
+        },
+        {
+          "id": "3.2",
+          "name": "MCP Deep Dive",
+          "path": "lesson-modules/3.2-mcp/CLAUDE.md",
+          "description": "Connect Claude to GitHub, Notion, Google Calendar, and more"
+        },
+        {
+          "id": "3.3",
+          "name": "Multi-Agent Workflows",
+          "path": "lesson-modules/3.3-multi-agent/CLAUDE.md",
+          "description": "Orchestrate parallel agent pipelines for complex tasks"
+        }
+      ]
+    }
+  ],
+  "bonus": [
+    {
+      "id": "gauntlet",
+      "name": "The Gauntlet",
+      "path": "lesson-modules/bonus-gauntlet/CLAUDE.md",
+      "description": "One prompt. Three agents. Full verdict on your quiz. Requires Module 1 (agents) and Module 2 (quiz). No Module 3 needed.",
+      "command": "/start-bonus"
     }
   ],
   "scenario": {

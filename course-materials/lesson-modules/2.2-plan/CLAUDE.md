@@ -25,6 +25,7 @@ I'm going to use a tool called AskUserQuestion - it gives you nice buttons to pi
 Let's try it now.
 
 ACTION: Use AskUserQuestion with two questions:
+NOTE: If AskUserQuestion is unavailable, present the choices as numbered text options and ask the student to type their selection number.
 - Q1 Header: "Results" / Question: "How many personality/coffee pairings should your quiz have?" / Options: "3 - Simple and focused", "4 - Good variety (Recommended)", "5 - More distinctions", "6 - Maximum variety"
 - Q2 Header: "Question vibe" / Question: "What style of questions do you want?" / Options: "Fun pop culture (Harry Potter, Netflix, etc.)", "Lifestyle & preferences (travel, food, weekends)", "Abstract & quirky (colors, scenarios, hypotheticals)", "Mix of everything"
 
@@ -99,13 +100,135 @@ STOP: Ready to see some style options?
 
 USER: Yes
 
-ACTION: Generate 3-4 HTML style preview files with different aesthetics:
-- Style 1: Playful/colorful (bright colors, rounded shapes, fun fonts)
-- Style 2: Minimal/clean (lots of whitespace, simple typography)
-- Style 3: Bold/dramatic (dark backgrounds, high contrast, strong typography)
-- Style 4: Warm/cozy (earth tones, soft gradients, inviting feel)
+ACTION: Generate 3-4 HTML style preview files using the templates below. Save them to the quiz-project folder as style-preview-1.html through style-preview-4.html, then customize them to match the coffee quiz branding.
 
-Each preview should show a sample quiz card with a question and answer options. Save them to the quiz-project folder as style-preview-1.html, style-preview-2.html, etc.
+---
+
+**Template 1 — Playful/Colorful:**
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  body { margin: 0; font-family: 'Segoe UI', sans-serif; background: linear-gradient(135deg, #f9a8d4, #c4b5fd, #93c5fd); min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+  .card { background: white; border-radius: 24px; padding: 40px; max-width: 480px; width: 90%; box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
+  h2 { color: #7c3aed; font-size: 1.5rem; margin-bottom: 8px; }
+  p { color: #6b7280; margin-bottom: 24px; }
+  .option { display: block; padding: 14px 20px; margin: 10px 0; border: 2px solid #e9d5ff; border-radius: 50px; cursor: pointer; font-size: 1rem; color: #374151; transition: all 0.2s; }
+  .option:hover { background: #7c3aed; color: white; border-color: #7c3aed; transform: scale(1.02); }
+  .badge { background: #f3e8ff; color: #7c3aed; border-radius: 20px; padding: 4px 14px; font-size: 0.8rem; font-weight: 600; display: inline-block; margin-bottom: 16px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <span class="badge">Question 2 of 6</span>
+  <h2>What's your ideal Saturday morning?</h2>
+  <p>Pick the one that feels most like you.</p>
+  <div class="option">🏔️ A spontaneous hike somewhere new</div>
+  <div class="option">📚 Reading with a blanket and zero plans</div>
+  <div class="option">🎉 Brunch with as many friends as possible</div>
+  <div class="option">🎨 Working on a personal creative project</div>
+</div>
+</body>
+</html>
+```
+
+---
+
+**Template 2 — Minimal/Clean:**
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  body { margin: 0; font-family: 'Georgia', serif; background: #fafafa; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+  .card { max-width: 520px; width: 90%; padding: 60px 0; }
+  .step { font-size: 0.75rem; letter-spacing: 0.15em; color: #9ca3af; text-transform: uppercase; margin-bottom: 32px; }
+  h2 { font-size: 1.75rem; color: #111827; line-height: 1.4; margin-bottom: 40px; font-weight: 400; }
+  .option { display: flex; align-items: center; padding: 18px 0; border-bottom: 1px solid #e5e7eb; cursor: pointer; color: #374151; font-size: 1rem; gap: 16px; transition: color 0.15s; }
+  .option:hover { color: #111827; }
+  .option::before { content: ''; width: 18px; height: 18px; border: 1px solid #d1d5db; border-radius: 50%; flex-shrink: 0; }
+  .option:hover::before { border-color: #111827; background: #111827; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="step">Question 2 of 6</div>
+  <h2>What's your ideal Saturday morning?</h2>
+  <div class="option">A spontaneous hike somewhere new</div>
+  <div class="option">Reading with a blanket and zero plans</div>
+  <div class="option">Brunch with as many friends as possible</div>
+  <div class="option">Working on a personal creative project</div>
+</div>
+</body>
+</html>
+```
+
+---
+
+**Template 3 — Bold/Dramatic:**
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  body { margin: 0; font-family: 'Impact', 'Arial Black', sans-serif; background: #0a0a0a; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+  .card { max-width: 560px; width: 90%; padding: 60px 40px; border: 1px solid #ffffff22; }
+  .step { font-size: 0.7rem; letter-spacing: 0.2em; color: #f59e0b; text-transform: uppercase; margin-bottom: 24px; font-family: 'Arial', sans-serif; }
+  h2 { font-size: 2rem; color: #ffffff; line-height: 1.2; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 0.02em; }
+  .option { display: block; padding: 16px 24px; margin: 12px 0; border: 1px solid #ffffff33; color: #e5e7eb; cursor: pointer; font-family: 'Arial', sans-serif; font-size: 0.95rem; letter-spacing: 0.05em; transition: all 0.15s; text-transform: uppercase; }
+  .option:hover { background: #f59e0b; color: #0a0a0a; border-color: #f59e0b; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="step">Question 2 of 6</div>
+  <h2>What's your ideal Saturday morning?</h2>
+  <div class="option">A spontaneous hike somewhere new</div>
+  <div class="option">Reading with a blanket and zero plans</div>
+  <div class="option">Brunch with as many friends as possible</div>
+  <div class="option">Working on a personal creative project</div>
+</div>
+</body>
+</html>
+```
+
+---
+
+**Template 4 — Warm/Cozy (Recommended for coffee theme):**
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  body { margin: 0; font-family: 'Georgia', serif; background: #fdf6ee; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+  .card { background: #fff8f0; border-radius: 16px; padding: 48px 44px; max-width: 500px; width: 90%; box-shadow: 0 4px 24px rgba(180, 120, 60, 0.12); border: 1px solid #f0dfc8; }
+  .step { font-size: 0.75rem; letter-spacing: 0.1em; color: #b45309; text-transform: uppercase; margin-bottom: 20px; font-family: sans-serif; }
+  h2 { font-size: 1.5rem; color: #44260e; line-height: 1.4; margin-bottom: 28px; font-weight: normal; }
+  .option { display: block; padding: 14px 20px; margin: 10px 0; border-radius: 10px; cursor: pointer; font-size: 1rem; color: #6b3f1f; background: #fef3e2; border: 1px solid #f0dfc8; transition: all 0.2s; font-family: inherit; }
+  .option:hover { background: #b45309; color: #fff8f0; border-color: #b45309; }
+  .divider { border: none; border-top: 1px solid #f0dfc8; margin: 28px 0; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="step">Question 2 of 6</div>
+  <h2>What's your ideal Saturday morning?</h2>
+  <hr class="divider">
+  <div class="option">☀️ A spontaneous hike somewhere new</div>
+  <div class="option">📖 Reading with a blanket and zero plans</div>
+  <div class="option">☕ Brunch with as many friends as possible</div>
+  <div class="option">✏️ Working on a personal creative project</div>
+</div>
+</body>
+</html>
+```
+
+---
 
 ACTION: Open all preview files in the browser using bash open commands
 

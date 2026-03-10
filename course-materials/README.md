@@ -4,10 +4,12 @@ Welcome to **Claude Code for Everyone** (CC4E), a hands-on course teaching Claud
 
 ## Getting Started
 
-1. Open this folder in Cursor (or VS Code)
+1. Open this folder in Cursor, VS Code, or Nimbalyst
 2. Open the terminal (Ctrl+` or View → Terminal)
 3. Type `claude` and press Enter
 4. Type `/start-1-1` to begin!
+
+**Lost or stuck?** Type `/help` for a menu, or `/stuck` for a diagnostic flow.
 
 ## Course Structure
 
@@ -21,8 +23,23 @@ Welcome to **Claude Code for Everyone** (CC4E), a hands-on course teaching Claud
 - **1.7** CLAUDE.md - Persistent project memory
 - **1.8** Power Features - Celebration and Module 2 preview
 
-### Module 2: Vibe Coding (Coming Soon)
-Build the Coffee Personality Quiz from scratch!
+### Module 2: Vibe Coding
+Build the Coffee Personality Quiz from scratch and deploy it live!
+- **2.1** Setup - The vibecoding mindset and project folder setup
+- **2.2** Plan - Define requirements through an interview process
+- **2.3** Build & Iterate - Scaffold with Next.js 15, build, and refine
+- **2.4** GitHub - Version control and cloud backup
+- **2.5** Go Live - Deploy to Vercel with a real shareable URL
+
+### Module 3: Power User Track
+Master the advanced features that most Claude Code users never discover.
+- **3.1** Hooks & Automation - Pre/post-tool hooks, auto-formatting, custom triggers
+- **3.2** MCP Deep Dive - Connect Claude to GitHub, Notion, Google Calendar, and more
+- **3.3** Multi-Agent Workflows - Parallel agent orchestration and complex pipelines
+
+### Bonus: The Gauntlet 🏆
+One prompt. Three agents. Full verdict on your quiz. No setup required beyond Module 1 + 2.
+Type `/start-bonus` to run it.
 
 ## The Scenario
 

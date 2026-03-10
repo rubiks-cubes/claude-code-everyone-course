@@ -14,7 +14,7 @@ First, I need to set up the project structure - this creates all the starter fil
 
 ACTION: Run the following command in the quiz-project folder:
 ```
-npx create-next-app@latest . --typescript --tailwind --eslint --app --no-src-dir --import-alias "@/*" --yes
+npx create-next-app@15 . --typescript --tailwind --eslint --app --no-src-dir --import-alias "@/*" --yes
 ```
 (The --yes flag accepts all defaults automatically)
 
@@ -176,6 +176,37 @@ USER: Yes
 STOP: Ready to save your work? Say "let's do GitHub" or type /start-2-4
 
 USER: Let's do GitHub
+
+---
+
+## If Something Goes Wrong
+
+**npm install failures:**
+```bash
+# Clear cache and retry
+npm cache clean --force
+rm -rf node_modules package-lock.json
+npm install
+```
+If still failing, check Node.js version: `node --version` (needs v18+). If outdated, tell student to download the LTS version from nodejs.org.
+
+**Port conflict (something already using 3000):**
+Next.js will automatically suggest the next available port (3001, 3002, etc.) — just use that URL instead. Or kill the occupying process:
+```bash
+# Mac/Linux
+lsof -ti:3000 | xargs kill
+# Windows
+netstat -ano | findstr :3000
+taskkill /PID [PID from above] /F
+```
+
+**TypeScript errors after scaffold:**
+Usually safe to ignore during build — these are often type warnings, not blockers. If the dev server won't start:
+```bash
+# Skip type checking to get running faster
+npm run dev -- --no-lint
+```
+Fix the underlying types afterward during iteration.
 
 ---
 

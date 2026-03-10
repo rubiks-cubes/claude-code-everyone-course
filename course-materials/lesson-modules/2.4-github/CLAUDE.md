@@ -60,7 +60,7 @@ gh --version
 3. Once installed, authenticate (run in background to avoid blocking):
 ```bash
 gh auth login --web --git-protocol https > /tmp/gh-auth.log 2>&1 &
-sleep 2
+sleep 4
 cat /tmp/gh-auth.log
 ```
 
@@ -115,6 +115,12 @@ git commit -m "Initial commit - coffee personality quiz"
 gh repo create quiz-project --private --source=. --push
 ```
 
+If that command fails with a "name already exists" or "already exists on this account" error:
+- Option A: Delete the existing repo first: `gh repo delete quiz-project --yes`, then retry
+- Option B: Use a different name: `gh repo create quiz-project-2 --private --source=. --push`
+
+Ask the student which they prefer and proceed accordingly.
+
 Done! Your code is now saved to GitHub. Developers call this "pushing" your code - you're pushing it up to the cloud.
 
 Let me open it for you so you can see it.
@@ -144,6 +150,29 @@ That's exactly what we're doing next.
 STOP: Ready to go live? Say "let's go" or type /start-2-5
 
 USER: Let's go
+
+---
+
+## If Something Goes Wrong
+
+**Auth failure (gh auth status shows "not logged in"):**
+The background process may have timed out. Run the auth command again — this time watch the browser carefully for the device code prompt:
+```bash
+gh auth login --web --git-protocol https
+```
+
+**SSH key errors when pushing:**
+The course uses HTTPS (not SSH), so this shouldn't happen. But if it does:
+```bash
+gh auth setup-git
+```
+Then retry the push.
+
+**Push rejected ("remote rejected" or "non-fast-forward"):**
+The repo may already have commits. Force the initial push (safe on a brand-new repo):
+```bash
+git push --set-upstream origin main --force
+```
 
 ---
 

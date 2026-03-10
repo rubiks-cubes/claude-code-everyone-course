@@ -36,7 +36,7 @@ In this course, we're going to work together through a fictional scenario that w
 
 In this Module, we'll cover how to use Claude Code for all kinds of general, non-coding use cases.
 
-Upcoming modules (releasing in the coming weeks at a very fast pace) will teach you things like how to vibecode with Claude Code all the way to ACTUALLY deploying an app with a real working link you can send to your friends, connecting Claude Code to literally any app or data you want, and much more.
+Upcoming modules (releasing in the coming weeks at a very fast pace) will teach you things like how to vibecode with Claude Code all the way to ACTUALLY deploying an app with a real working link you can send to your friends (Module 2), mastering power features like hooks, MCP server integrations, and multi-agent workflows (Module 3), and a special Bonus challenge where you'll unleash your full agent team in one single command.
 
 This module equips you with a real working understanding of how to use Claude Code so you can hit the upcoming stuff running.
 

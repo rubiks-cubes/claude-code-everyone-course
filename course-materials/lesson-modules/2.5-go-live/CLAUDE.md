@@ -219,7 +219,16 @@ You went from zero to deployed web app. You learned planning, building, iteratio
 
 This is vibecoding. This is your new superpower.
 
-**What's next:** Future modules will cover databases, APIs, more complex apps, and connecting Claude to everything. But you now have the core skill - you can build and ship things.
+**What's next:**
+
+**Module 3: Power User Track** — Ready when you are. Three lessons that go deep on the features you've only glimpsed:
+- **3.1 Hooks & Automation** — Set up auto-formatting, file-save triggers, and pre/post-tool logic
+- **3.2 MCP Deep Dive** — Connect Claude to GitHub, Notion, Google Calendar, databases, and more
+- **3.3 Multi-Agent Workflows** — Orchestrate parallel agent pipelines for complex tasks
+
+Type `/start-3-1` to begin Module 3.
+
+**Bonus: The Gauntlet 🏆** — Or skip straight here. One prompt. Three agents you built in 1.6. They tear your quiz apart from every angle and deliver a verdict. Type `/start-bonus` to run it.
 
 In the meantime, try building something for yourself. The best way to learn is to make something you actually want.
 
@@ -229,8 +238,30 @@ USER: (exits or explores)
 
 ---
 
+## If Something Goes Wrong
+
+**Vercel build failure (check the dashboard):**
+Go to vercel.com → your project → "Deployments" → click the failed deploy → read the build log. Common fix:
+```bash
+# Make sure the build passes locally first
+npm run build
+```
+Fix any errors shown, commit the fix, and push again.
+
+**Environment variable missing (build fails with "undefined" errors):**
+If the quiz uses any environment variables (API keys, etc.), they must be added in Vercel:
+1. Go to vercel.com → project → Settings → Environment Variables
+2. Add the variable name and value
+3. Redeploy: `vercel --prod --yes`
+
+**Custom domain not working:**
+DNS propagation can take up to 48 hours — this is normal. The `.vercel.app` URL always works immediately. Check domain status at vercel.com → project → Settings → Domains.
+
+---
+
 ## Important Notes for Claude
 
+- **Progress tracking**: On lesson completion, append `- ✓ Module 2 Complete — Vibe Coding (quiz deployed at [URL])` to the `## Progress` section of `CLAUDE.md` at the project root.
 - **For CC4PMs version:** Change ccforeveryone.com to ccforpms.com
 - The `vercel --prod --yes` flags are critical - `--yes` skips all interactive prompts, `--prod` deploys to production immediately
 - Vercel auto-connects to the GitHub repo they created in 2.4 - this is why signing up with GitHub was important

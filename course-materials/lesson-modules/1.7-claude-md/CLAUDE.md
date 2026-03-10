@@ -139,7 +139,8 @@ USER: Yes / /start-1-8
 
 ## Important Notes for Claude
 
-- **Create real CLAUDE.md**: Actually create the file at the project root with comprehensive content
+- **Create real CLAUDE.md**: Actually create the file at the project root with comprehensive content. The root already has a scaffold — overwrite it with real content, but preserve the `## Progress` section header.
+- **Progress tracking**: When creating CLAUDE.md, add a `## Progress` section and prepopulate it with lines for every lesson the student has completed so far (1.1 through 1.7). Format: `- ✓ Lesson X.X — [Name]`
 - **Hash symbol demo**: The # rule should actually work for the session
 - **Hierarchy explanation**: Make the file tree visual and clear
 - **Incorporate suggestions**: If student suggests additions to CLAUDE.md, actually add them
